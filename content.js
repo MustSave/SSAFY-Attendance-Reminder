@@ -38,7 +38,7 @@ function blink() {
     dialog.id = "modal_alert";
     dialog.style = "width: 300px; padding: 20px; border: 2px solid #ccc; border-radius: 8px; background-color: #fff;"
     dialog.innerHTML =
-        `<h2 style="font-size: 2em; font-weight : bold; margin-top: 0; margin-bottom: 10px; color: #333; text-align: center;">입실클릭 안함?</h2>
+        `<h2 style="font-size: 2em; font-weight : bold; margin-top: 0; margin-bottom: 10px; color: #333; text-align: center;">${new Date().getHours() < 12 ? "입" : "퇴"}실클릭 안함?</h2>
         <button id="closeModalBtn" style="float: right; background-color: #007bff; color: #fff; border: none; padding: 8px 16px; border-radius: 4px; cursor: pointer; width: 80px; height: 40px; font-size: 16px;">닫기</button>`;
     
     container.append(bg, dialog);
