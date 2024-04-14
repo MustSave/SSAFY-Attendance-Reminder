@@ -11,7 +11,8 @@ setInterval(() => {
     const hours = currentTime.getHours();
     const minutes = currentTime.getMinutes();
 
-    if ((hours === 8 && [30, 45, 55, 58].includes(minutes))) {
+    const loginCheckCond = hours === 8 && [30, 45, 55, 58].includes(minutes);
+    if (loginCheckCond) {
         chrome.storage.local.get("lastLoginDate", function(data) {
             const storedDate = data.lastLoginDate;
             const today = new Date().toDateString();
