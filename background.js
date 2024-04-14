@@ -7,7 +7,7 @@ chrome.webRequest.onCompleted.addListener(details => {
         if (isCheckin) chrome.storage.local.set({ lastCheckinDate: today });
         else chrome.storage.local.set({ lastCheckoutDate: today });
     },
-    { urls: ["https://edu.ssafy.com/edu/mycampus/attendance/attendanceClassCheckIn.do"] }
+    { urls: ["https://edu.ssafy.com/edu/mycampus/attendance/attendanceClassCheckIn.do", "https://edu.ssafy.com/edu/mycampus/attendance/attendanceClassCheckOut.do"] }
 );
 
 const intervalTime = 58000;
