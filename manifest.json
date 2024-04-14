@@ -1,14 +1,11 @@
 {
-    "manifest_version": 3,
+    "manifest_version": 2,
     "name": "SSAFY Check-in Reminder",
     "version": "1.0",
     "description": "싸피 입실 리마인더",
-    "permissions": ["tabs", "activeTab", "storage", "scripting", "webRequest"],
-    "host_permissions": [
-        "http://*/*",
-        "https://*/*"
-      ],
+    "permissions": ["tabs", "activeTab", "storage", "webRequest", "webRequestBlocking", "*://*/*"],
     "background": {
-      "service_worker": "background.js"
-    }
+      "scripts": ["background.js"],
+      "persistent": true
+  }
 }
