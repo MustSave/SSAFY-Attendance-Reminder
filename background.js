@@ -1,12 +1,11 @@
 chrome.webRequest.onCompleted.addListener(details => {
         if (details.statusCode >= 400) return;
         const today = new Date().toDateString();
-        // console.log(details.url, details.statusCode, today);
+        console.log(details.url, details.statusCode, today);
         chrome.storage.local.set({ "lastLoginDate": today });
     },
     { urls: ["https://edu.ssafy.com/edu/mycampus/attendance/attendanceClassCheckIn.do"] }
 );
-  
 setInterval(() => {
     const currentTime = new Date();
     const hours = currentTime.getHours();
@@ -20,11 +19,8 @@ setInterval(() => {
 
             chrome.tabs.query({active: true, currentWindow: true}, function(tabs) {
                 if (!tabs?.at(0)?.id) return;
-                chrome.scripting.executeScript({
-                    target: {tabId: tabs[0].id},
-                    files: ['content.js']
-                });
+                chrome.tabs.executeScript(tabs[0].id, {file: "content.js"});
             });
         });
     }
-}, 60000); // Check every minute
+}, 58000); // Check every minute
