@@ -10,13 +10,9 @@ function blink() {
                 width: 100%;
                 height: 100%;
                 position: fixed;
-                z-index: 999;
+                z-index: 2147483647;
                 display: flex;
                 top: 0;
-            }
-            #ssafy-alert {
-                width: 100%;
-                height: 100%;
                 animation: blink 0.8s infinite;
             }
             @keyframes blink {
@@ -31,21 +27,24 @@ function blink() {
                   }
               }
         </style>
-        <div id="ssafy-alert"></div>
+        <div></div>
     `
 
     const dialog = document.createElement("dialog");
-    dialog.id = "modal_alert";
-    dialog.style = "width: 300px; padding: 20px; border: 2px solid #ccc; border-radius: 8px; background-color: #fff;"
+    dialog.style = "position:fixed; margin: auto; width: 300px; padding: 20px; border: 2px solid #ccc; border-radius: 8px; background-color: #fff;"
     dialog.innerHTML =
         `<h2 style="font-size: 2em; font-weight : bold; margin-top: 0; margin-bottom: 10px; color: #333; text-align: center;">${new Date().getHours() < 12 ? "입" : "퇴"}실클릭 안함?</h2>
-        <button id="closeModalBtn" style="float: right; background-color: #007bff; color: #fff; border: none; padding: 8px 16px; border-radius: 4px; cursor: pointer; width: 80px; height: 40px; font-size: 16px;">닫기</button>`;
-    
+        <form method="dialog">
+            <button id="closeModalBtn" style="float: right; background-color: #007bff; color: #fff; border: none; padding: 8px 16px; border-radius: 4px; cursor: pointer; width: 80px; height: 40px; font-size: 16px;">닫기</button>
+        </form>`;
+
     container.append(bg, dialog);
     document.body.append(container);
 
+    dialog.addEventListener("close", () => {
+        container.remove();
+    });
     dialog.showModal();
-    dialog.querySelector("button").onclick = () => container.remove();
 }
 
 if (!document.body.querySelector("#ssafy-alert"))
