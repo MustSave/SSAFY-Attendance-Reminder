@@ -5,6 +5,7 @@ This Chrome extension serves as a reminder for attending or leaving the SSAFY (S
 ## Features
 
 - **Check-in/Check-out Reminder**: The extension reminds users to check in or out of SSAFY premises if they haven't done so.
+<img src="https://github.com/MustSave/SSAFY-Attendance-Reminder/assets/58774251/d3aa221a-b754-46a9-87a9-70f799618690" width="50%">
 
 ## Installation
 
